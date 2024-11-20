@@ -1,0 +1,61 @@
+
+
+<div class="container">
+  <div class="logo">
+    <img routerLink="/" src="../../../../assets/dalle.png" alt="logo"/>
+  </div>
+  <div class="login-name"><h1>REJESTRACJA</h1></div>
+<form [formGroup]="registerForm" (ngSubmit)="submit()">
+<div class="input-container">
+
+
+  <div class="input-div">
+    <input type="email" placeholder=" " class="input-field" formControlName="email" id="email"/>
+    <label for="email" class="input-label">Adres e-mail</label>
+    <div class="error" *ngIf="fc.email.errors && isSubmitted">
+      <div *ngIf="fc.email.errors.required">Pole nie może być puste!</div>
+    </div>
+  </div>
+
+
+  <div class="input-div">
+    <input type="name" placeholder=" " class="input-field" formControlName="name" id="name"/>
+    <label for="name" class="input-label">Nazwa użytkownika</label>
+    <div class="error" *ngIf="fc.name.errors && isSubmitted">
+      <div *ngIf="fc.name.errors.required">Pole nie może być puste!</div>
+    </div>
+  </div>
+
+
+  <div class="input-div">
+    <input type="address" placeholder=" " class="input-field" formControlName="address" id="address"/>
+    <label for="address" class="input-label">Adres zamieszkania</label>
+    <div class="error" *ngIf="fc.address.errors && isSubmitted">
+      <div *ngIf="fc.address.errors.required">Pole nie może być puste!</div>
+    </div>
+  </div>
+
+
+  <div class="input-div">
+    <input type="password" placeholder=" " class="input-field" formControlName="password" id="password"/>
+    <label for="password" class="input-label">Hasło</label>
+    <div class="error" *ngIf="fc.password.errors && isSubmitted">
+      <div *ngIf="fc.password.errors.required">Pole nie może być puste!</div>
+    </div>
+  </div>
+
+  <div class="input-div">
+    <input type="password" placeholder=" " class="input-field" formControlName="password_repeat" id="password_repeat"/>
+    <label for="password_repeat" class="input-label">Powtórz hasło</label>
+    <div class="error" *ngIf="fc.password_repeat.errors && isSubmitted">
+      <div *ngIf="fc.password_repeat.errors.required">Pole nie może być puste!</div>
+    </div>
+  </div>
+
+
+</div>
+<div class="submitButton">
+  <button type="submit">ZAREJESTRUJ</button>
+</div>
+</form>
+</div>

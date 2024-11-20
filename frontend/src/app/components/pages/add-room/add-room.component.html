@@ -1,0 +1,69 @@
+<div class="main-container">
+  <h1>DODAWANIE NOWEGO LOKALU</h1>
+<form [formGroup]="addForm" (ngSubmit)="sumbit()">
+
+    <div class="name-type">
+      <h2>Nazwa obiektu</h2>
+      <div class="name-container">
+    <input minlength="3" class="room-name input-field" formControlName="name" placeholder="Nazwa lokalu*" type="text" id="name">
+  </div>
+    <div class="type-container">
+    <select class="room-type input-field" formControlName="type">
+      <option value="">Typ lokalu</option>
+      <option value="Apartament">Apartament</option>
+      <option value="Dom">Dom</option>
+      <option value="Pokój">Pokój</option>
+    </select>
+  </div>
+    </div>
+    <div class="price-beds-container">
+      <h2>Szczegóły</h2>
+  <div class="price-rooms">
+    <input min="0" class="input-field" formControlName="price" placeholder="Cena za noc*" type="number" id="price">
+    <input min="0" class="room-rooms input-field" formControlName="rooms" placeholder="Ilość pokoi*" type="number" id="rooms">
+  </div>
+<div class="guests-beds">
+    <input min="0" class="input-field" formControlName="maxGuests" placeholder="Maksymalna ilość gości*" type="number" id="maxGuests">
+    <input min="0" class="room-beds input-field" formControlName="beds" placeholder="Ilość łózek*" type="number" id="beds">
+</div>
+</div>
+<div class="tags-container">
+    <h2>Tagi</h2>
+    <div class="tags">
+      <mat-select class="room-tags input-field" placeholder="Tagi*" formControlName="tag" multiple>
+        <mat-option value="Kuchnia">Kuchnia</mat-option>
+        <mat-option value="Klimatyzacja">Klimatyzacja</mat-option>
+        <mat-option value="Ogrzewanie">Ogrzewanie</mat-option>
+        <mat-option value="WI-FI">Wifi</mat-option>
+        <mat-option value="Balkon">Balkon</mat-option>
+        <mat-option value="Sauna">Sauna</mat-option>
+      </mat-select>
+    </div>
+  </div>
+  <div class="descs-container">
+  <h2>Opisy</h2>
+  <div class="short-desc-container">
+    <textarea maxlength="150" class="room-short-desc input-field" formControlName="desc" placeholder="Krótki opis*" id="desc"></textarea>
+  </div>
+    <div class="long-desc-container">
+    <textarea maxlength="9000" class="room-long-desc input-field" formControlName="desc_long" placeholder="Szczegółowy opis*" id="desc_long"></textarea>
+  </div>
+  </div>
+<div class="container images">
+  <div class="form-input-image">
+    <h2>Zdjęcia</h2>
+    <input type="file" id="fileInput" style="display: none;" (change)="onFileSelected($event)">
+    <label for="fileInput" class="fileInputLabel"><p class="image-text">Wybierz zdjęcie główne</p>
+    </label>
+    <p class="image-name" id="fileNameDisplay"></p>
+  </div>
+  <div class="form-input-extra-image">
+    <label class="fileInputLabel extra" for="additionalImages"><p class="image-text">Wybierz dodatkowe zdjęcia</p></label>
+    <input style="display: none;" type="file" id="additionalImages" (change)="onAdditionalImagesSelect($event)" multiple accept="image/*">
+  </div>
+</div>
+<div class="button-container">
+  <button type="submit">DODAJ LOKAL</button>
+</div>
+</form>
+</div>

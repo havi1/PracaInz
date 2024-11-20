@@ -1,0 +1,28 @@
+<header *ngIf="isVisible |async">
+  <div class="logo">
+    <img routerLink="/" src="../../../../assets/dalle.png" alt="logo"/>
+    <button routerLink="/" class="button" data-text="Awesome">
+      <span class="actual-text">&nbsp;TourZzz&nbsp;</span>
+      <span aria-hidden="true" class="hover-text">&nbsp;TourZzz&nbsp;</span>
+  </button>
+  </div>
+  <app-search></app-search>
+<nav>
+  <ul>
+    <li *ngIf="!isUserAuthenticated" routerLink="/register" class="item login"><a>Zarejestruj się</a></li>
+    <li *ngIf="!isUserAuthenticated" routerLink="/login" class="item"><a>Zaloguj się</a></li>
+    <li *ngIf="isUserAuthenticated && !isUserAdmin" class="item login">
+        <a routerLink="/user-profile/{{user.id}}"><span nz-icon nzType="user" nzTheme="outline"></span>Profil</a>
+      </li>
+      <li *ngIf="isUserAuthenticated && isUserAdmin" class="item">
+        <a routerLink="/add"><span nz-icon nzType="appstore-add" nzTheme="outline"></span>Dodaj</a>
+      </li>
+      <li *ngIf="isUserAdmin" class="item">
+        <a routerLink="/admin-reservations/"><span nz-icon nzType="shopping-cart" nzTheme="outline"></span>Rezerwacje</a>
+      </li>
+      <li *ngIf="isUserAuthenticated" class="item">
+        <a (click)="logout()"><span nz-icon nzType="logout" nzTheme="outline"></span>Wyloguj</a>
+      </li>
+  </ul>
+</nav>
+</header>

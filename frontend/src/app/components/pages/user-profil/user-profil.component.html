@@ -1,0 +1,86 @@
+<div class="main-container">
+    <h3>Cześć, {{user.name}}</h3>
+    <div class="user-settings-container">
+        <div class="navigation-container">
+          <div (click)="openUserReservations()" [class.navigation-item]="!isUserReservations" [class.navigation-item-active]="isUserReservations"><p>Twoje rezerwacje</p></div>
+            <div (click)="openUserData()" [class.navigation-item]="!isUserData" [class.navigation-item-active]="isUserData"><p>Twoje dane</p></div>
+            <div (click)="openPasswordChange()"[class.navigation-item]="!isPasswordChange" [class.navigation-item-active]="isPasswordChange"><p>Zmiana hasła</p></div>
+        </div>
+        <div class="content-container">
+            <div *ngIf="isUserData" class="if-content">
+                <h4>Twoje dane</h4>
+                <div class="user-data-container">
+                    <h5>Nazwa:</h5>
+                    <div class="user-data-content">
+                        <p>{{user.name}}</p>
+                        <span class="material-symbols-outlined">edit</span>
+                    </div>
+                </div>
+                <div class="user-data-container">
+                    <h5>Email:</h5>
+                    <div class="user-data-content">
+                        <p>{{user.email}}</p>
+                        <span class="material-symbols-outlined">edit</span>
+                    </div>
+                </div>
+                <div class="user-data-container">
+                    <h5>Adres:</h5>
+                    <div class="user-data-content">
+                        <p>{{user.address}}</p>
+                        <span class="material-symbols-outlined">edit</span>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="isPasswordChange" class="if-content">
+                <h4>Zmiana hasła</h4>
+                <form [formGroup]="changePassword" (ngSubmit)="changeUserPassword()">
+                <div class="input-container">
+                    <h5>Stare hasło:</h5>
+                        <input placeholder=" " type="password" formControlName="oldPassword">
+                </div>
+                <div class="input-container">
+                    <h5>Nowe hasło:</h5>
+                    <input placeholder=" " type="password" formControlName="newPassword">
+            </div>
+            <div class="input-container">
+                <h5>Powtórz nowe hasło:</h5>
+                <input type="password" formControlName="newPasswordCheck">
+        </div>
+        <div class="input-container">
+            <button type="submit">Zatwierdź</button>
+        </div>
+            </form>
+            </div>
+
+            <div *ngIf="isUserReservations" class="if-content">
+              <h4>Twoje rezerwacje</h4>
+              <div class="table-header">
+                <div class="cell-header">NAZWA POKOJU</div>
+                <div class="cell-header">DATA REZERWACJI</div>
+                <div class="cell-header">CENA</div>
+                <div class="cancel-header">ANULUJ</div>
+            </div>
+              <div class="reservation-container" *ngFor="let reservation of reservations">
+                <div routerLink="/cottage/{{reservation.roomId.id}}" class="cell click"><p>{{reservation.roomId.name}}</p></div>
+                <div class="cell">{{reservation.startDate | date: 'yyyy-MM-dd'}} - {{reservation.endDate | date: 'yyyy-MM-dd'}}</div>
+                <div class="cell">{{reservation.totalPrice}} ZŁ</div>
+                <div class="cancel">
+                  <button
+                  nz-popconfirm
+                  nzPopconfirmTitle="Czy na pewno chcesz anulować rezerwację?"
+                  (nzOnConfirm)="deleteReservation(reservation._id)"
+                  nzPopconfirmPlacement="bottom"
+                  nzOkText="Zatwierdź"
+                  nzCancelText="Anuluj"
+                  nz-button
+                >
+                <span class="material-symbols-outlined">
+                  delete_forever
+                  </span>
+                </button>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>

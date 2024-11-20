@@ -1,0 +1,198 @@
+.container {
+  display: flex;
+  column-gap: 20px;
+  min-height: 1000px;
+  justify-content:center;
+  padding-top: 10px;
+}
+
+.sorting-search-container{
+  display: flex;
+  margin-top: 80px;
+  height: 45px;
+  justify-content: center;
+  column-gap: 650px;
+}
+
+.search-term {
+  font-size: 25px;
+  width: 400px;
+  height: 40px;
+}
+
+.search-term a{
+  color:gray;
+  font-size: 21px;
+
+}
+
+.sort {
+  width: 120px;
+
+}
+
+.tagsContainer {
+  width: 250px;
+  border: 1px solid rgb(228, 228, 228);
+  border-radius: 15px;
+  box-shadow: 0 2px 5px rgb(203, 203, 203);
+  height: 600px;
+  background-color: white;
+  position: sticky;
+  top: 90px;
+}
+
+.cottage-list-container {
+width: 900px;
+
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.cottage-item {
+  display: flex;
+  column-gap: 1rem;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  border: 1px solid rgb(228, 228, 228);
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgb(203, 203, 203);
+  height: 250px;
+  background-color: rgb(255, 255, 255);
+}
+
+.image-container {
+  width: 300px;
+
+}
+
+.cottage-image {
+  height: 250px;
+  width: 300px;
+  border-radius: 35px;
+  padding: 1.2rem;
+  margin-left: 0.6rem;
+}
+
+.content {
+  height: 300px;
+  position: relative;
+  display: flex;
+  width:350px;
+  height: 230px;
+  flex: 1;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  border-left: 1px solid rgb(228, 228, 228);
+  padding-left: 1rem;
+  padding-top: 0.2rem;
+}
+
+.name-desc-container {
+  flex: 1;
+  text-align: left;
+}
+.name {
+  font-size: 18px;
+  font-weight: bold;
+}
+.desc {
+  margin-top: 5px;
+  height: 90px;
+  overflow: hidden;
+}
+
+.price-container {
+  width: 200px;
+  display:flex;
+  height: 230px;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-bottom: 10px;
+  padding-right: 10px;
+}
+
+.seeMore {
+  padding: 2px 10px 5px 10px;
+  border-radius: 5px;
+  background: rgb(235,235,235);
+  text-align: center;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  height: 30px;
+  width: 150px;
+}
+
+.seeMore span{
+  font-size: 17px;
+  margin-left: 7px;
+  margin-top: 4px;
+  transition: transform 0.3s ease; /* Efekt przejścia, który sprawia, że przesunięcie jest płynne */
+  display: inline-block; /* Zapewnia, że span może być transformowany */
+}
+
+.seeMore:hover span {
+  transform: translateX(10px); /* Przesuwa span o 10 pikseli w prawo */
+}
+
+.price {
+  margin: 10px;
+  font-size: 16px;
+  align-self: flex-end;
+  font-size: 15px;
+  align-self: flex-start;
+}
+.price::before {
+  content: "Cena za noc: ";
+  color: darkgray;
+}
+
+.price::after {
+content: "ZŁ";
+color:gray;
+}
+
+.guests::before{
+  content: "Maksymalna ilość gości:";
+  color: gray;
+}
+
+.rooms:before {
+  content:"Ilość pokoi:";
+  color:gray;
+}
+
+.tags {
+  width: 80%;
+  font-size: 13px;
+  padding-bottom: 0.5rem;
+}
+
+.tags a {
+  padding:3px;
+  margin-right: 3px;
+  border-radius: 5px;
+  color: white;
+  background-color: rgb(44, 112, 44);
+}
+
+.tags a:hover {
+  color:rgba(255, 255, 255, 0.3);
+}
+
+.info {
+  position: absolute;
+  bottom: 0;
+  width: 70%;
+  height: 33%;
+  padding: 0.3rem;
+  border-radius: 0.5rem;
+}

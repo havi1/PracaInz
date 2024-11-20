@@ -1,0 +1,37 @@
+.search-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+input {
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #c1c1c1; /* Kolor obramowania inputa */
+  border-radius: 5px 0 0 5px;
+  width: 300px;
+  background-color: #ffffff;
+  height: 38px;
+}
+
+input:focus {
+  outline: none;
+}
+
+
+button {
+  padding: 3px 15px;
+  font-size: 19px;
+  background-color: #8b8b8b; 
+  color: #fff;
+  border: 2px solid #898989;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  height: 38px;
+}
+
+/* Dodatkowy styl przy najechaniu na przycisk */
+button:hover {
+  background-color: #7c7c7c; /* Zmiana koloru tła przy najechaniu na przycisk */
+  border-color: #717171;; /* Zmiana koloru obramowania przy najechaniu na przycisk */
+}

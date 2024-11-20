@@ -1,0 +1,30 @@
+
+
+<div class="container">
+  <div class="logo">
+    <img routerLink="/" src="../../../../assets/dalle.png" alt="logo"/>
+  </div>
+  <div class="login-name"><h1 class="btn-shine">Logowanie</h1></div>
+<form [formGroup]="loginForm" (ngSubmit)="submit()">
+<div class="input-container">
+  <div class="input-div">
+    <input type="email" placeholder=" " class="input-field" formControlName="email" id="email"/>
+    <label for="email" class="input-label">Adres e-mail</label>
+    <div class="error" *ngIf="fc.email.errors && isSubmitted">
+      <div *ngIf="fc.email.errors.required">Pole nie może być puste!</div>
+    </div>
+  </div>
+  <div class="input-div">
+    <input type="password" placeholder=" " class="input-field" formControlName="password" id="password"/>
+    <label for="password" class="input-label">Hasło</label>
+    <div class="error" *ngIf="fc.password.errors && isSubmitted">
+      <div *ngIf="fc.password.errors.required">Pole nie może być puste!</div>
+    </div>
+  </div>
+</div>
+<div class="submitButton">
+  <button type="submit">ZALOGUJ</button>
+</div>
+</form>
+<p class="register">Nie masz konta?<a routerLink="/register"> Zarejestruj się!</a></p>
+</div>

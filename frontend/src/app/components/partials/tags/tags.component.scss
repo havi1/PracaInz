@@ -1,0 +1,75 @@
+div{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+
+
+}
+div a{
+  font-weight: 500;
+  text-align: left;
+  height: 2rem;
+  color: black;
+  margin-left: 15px;
+
+}
+hr {
+  background-color: rgb(228, 228, 228);
+  width: 220px;
+  height: 1px;
+  border: none;
+}
+
+.filters {
+  padding-top: 10px;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+}
+
+.price, .guest, .rooms{
+width: 250px;
+height: 30px;
+padding-left: 10px;
+margin-top: 0px;
+}
+
+
+
+.price input, .guest input, .rooms input {
+  width: 100px;
+  border-radius: 5px;
+  border-color: rgb(174, 173, 173);
+  border-width: 1px;
+  padding-left: 10px;
+}
+
+
+.filters button {
+  width: 150px;
+  margin-left: 50px;
+  margin-top: 10px;
+  border-radius: 5px;
+  border: 1px solid rgb(241, 241, 241);
+  background: rgb(235,235,235);
+  cursor: pointer;
+  box-shadow: 0 1px 4px rgb(203, 203, 203);
+}
+
+.tags a{
+  padding-top: 3px;
+  height: 30px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.tags span {
+  padding-right: 3px;
+  font-size: 20px;
+  flex: 0 0 auto;
+}
+
+.tag-name {
+  flex:0 0 auto;
+}
+

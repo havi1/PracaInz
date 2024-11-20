@@ -1,0 +1,128 @@
+.main-container {
+  padding-top: 100px;
+  width: 1000px;
+  margin: 0 auto;
+}
+.main-container h1 {
+  text-align: center;
+}
+
+.main-container h2 {
+  padding-left: 10px;
+}
+
+.name-type {
+  background-color: white;
+  padding: 10px;
+}
+
+.price-beds-container, .tags-container, .descs-container {
+  margin-top: 20px;
+  background-color: white;
+  padding: 10px;
+}
+
+.input-field {
+  border: none;
+  outline: none;
+  border-radius: 2px;
+  height: 40px;
+  background-color: rgb(245,245,245);
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.name-container, .type-container, .price-rooms, .guests-beds, .tags, .short-desc-container, .long-desc-container{
+  padding: 10px;
+}
+
+.button-container {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: right;
+}
+
+.button-container button {
+  outline: none;
+  background-color: rgb(235,235,235);
+  border: none;
+  width: 200px;
+  height: 50px;
+  font-size: 18px;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.room-beds,  .room-rooms {
+  margin-left: 150px;
+}
+
+.room-short-desc {
+  width: 300px;
+  height: 100px;
+  resize: none;
+}
+
+.room-long-desc {
+  width: 500px;
+  height: 400px;
+  resize: none;
+}
+
+.room-type {
+  width: 150px;
+}
+
+.room-tags {
+  width: 150px;
+  padding: 10px 4px 10px 4px;
+}
+
+.room-name {
+  width: 400px;
+  height: 40px;
+}
+
+.container {
+  margin-top: 20px;
+  padding: 10px 10px 10px 30px;
+  background-color: white;
+}
+
+.images {
+  height: 240px;
+  display: flex;
+}
+.extra {
+  margin-top: 44px;
+  margin-left: 50px;
+}
+
+.fileInputLabel {
+  display: inline-block;
+  background-color: #007bff;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  width: 150px;
+  height: 150px;
+}
+
+.fileInputLabel:hover {
+  background-color: #0056b3;
+}
+
+.image-text {
+  text-align: center;
+  margin: 50px 0 0 5px;
+  width: 140px;
+  height: 50px;
+}
+
+.image-name{
+  font-size: 11px;
+  width: 150px;
+  height: 30px;
+  overflow: hidden;
+}

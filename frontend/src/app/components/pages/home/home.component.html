@@ -1,0 +1,54 @@
+<app-not-found [visible]="!cottages || !cottages.length" resetLinkText="Resetuj wyszukiwanie">
+</app-not-found>
+<div *ngIf="cottages.length" class="sorting-search-container">
+  <div *ngIf="!searchTerm" class="search-term"></div>
+  <div *ngIf="searchTerm" class="search-term">"{{searchTerm}}" <a>({{cottages.length}}) wyników</a></div>
+<div class="sort">
+  <app-filters></app-filters>
+</div>
+</div>
+<div class="container">
+<div class="tagsContainer" *ngIf="cottages.length">
+  <app-tags></app-tags>
+</div>
+<div class="cottage-list-container">
+  <ul>
+    <li *ngFor="let cottage of cottages">
+      <div class="cottage-item">
+        <div class="image-container">
+        <a routerLink="/cottage/{{cottage.id}}">
+          <img [src]="cottage.imageUrl" [alt]="cottage.name" class="cottage-image"/>
+        </a>
+      </div>
+        <div class="content">
+          <div class="name-desc-container">
+            <div class="name">
+              {{cottage.name}}
+            </div>
+            <div class="tags">
+              <a>{{cottage.type}}</a>
+            </div>
+            <div class="desc">
+            {{cottage.desc}}
+            </div>
+            <div class="info">
+            <div class="guests">
+              {{cottage.maxGuests}}
+              </div>
+              <div class="rooms">
+                {{cottage.rooms}}
+                </div>
+              </div>
+          </div>
+        </div>
+        <div class="price-container">
+          <div class="price">
+            {{cottage.price}}
+          </div>
+          <div class="seeMore" routerLink="/cottage/{{cottage.id}}"><p>Zobacz więcej </p><span class="material-symbols-outlined">trending_flat</span></div>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
+</div>

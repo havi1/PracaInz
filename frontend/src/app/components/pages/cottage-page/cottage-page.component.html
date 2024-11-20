@@ -1,0 +1,219 @@
+<app-not-found [visible]="!cottage" resetLinkText="Resetuj wyszukiwanie">
+</app-not-found>
+<div  class="container">
+  <div class="image-container">
+    <img [src]="cottage.imageUrl" [alt]="cottage.name">
+    <div class="gallery-open"(click)="openGallery()">
+      <span class="material-symbols-outlined">photo_camera</span>
+      <p>Zobacz zdjęcia</p>
+    </div>
+
+  </div>
+  </div>
+  <div class="navigate-container">
+    <p (click)="scrollTo('szczegoly')">Szczegóły</p>
+    <p (click)="scrollTo('opis')">Opis</p>
+    <p (click)="scrollTo('dostepnosc')">Dostępność</p>
+    <p (click)="scrollTo('lokalizacja')">lokalizacja</p>
+    <p (click)="scrollTo('opinie')">Opinie</p>
+  </div>
+<div *ngIf="cottage" class="main-container">
+<div *ngIf="isGalleryOpen" class="gallery-container">
+  <button (click)="closeGallery()" class="close-gallery-button">
+    <span class="material-symbols-outlined">close</span>
+  </button>
+  <p class="image-number-count">{{this.i + 1}}/{{this.imageUrlsLength}}</p>
+<div class="images-container">
+  <div class="button-image-container">
+    <button class="left-button" (click)="PrevImage()">
+      <span class="material-symbols-outlined">arrow_back_ios</span>
+    </button>
+  </div>
+  <div class="gallery">
+    <img [src]="imageUrlString" [alt]="cottage.name">
+  </div>
+  <div class="button-image-container">
+    <button class="right-button" (click)="NextImage()">
+      <span class="material-symbols-outlined"> arrow_forward_ios </span>
+    </button>
+  </div>
+</div>
+</div>
+<div id="szczegoly" class="details">
+  <div class="details-left-container">
+    <h2>Szczegóły</h2>
+    <div class="hr-container">
+    <div class="alone-detail-container">
+      <span class="material-symbols-outlined detail-icon">groups</span>
+      <p class="text-with-margin">Maksymalna ilość gości:</p>
+      <p class="cottage-number">{{cottage.maxGuests}}</p>
+  </div>
+    <hr>
+  </div>
+  <div class="hr-container">
+    <div class="alone-detail-container">
+      <span class="material-symbols-outlined detail-icon">meeting_room</span>
+      <p class="text-with-margin">Liczba pokoi:</p>
+      <p class="cottage-number">{{cottage.rooms}}</p>
+  </div>
+    <hr>
+  </div>
+  <div class="hr-container">
+    <div class="alone-detail-container">
+      <span class="material-symbols-outlined detail-icon">bed</span>
+      <p class="text-with-margin">Ilość łózek:</p>
+      <p class="cottage-number">{{cottage.beds}}</p>
+  </div>
+    <hr>
+  </div>
+  </div>
+  <div class="details-right-container">
+    <h1>{{cottage.name}}</h1>
+    <div class="tags-container">
+    <div class="tags" *ngFor="let tag of cottage.tag">
+      {{tag}}
+  </div>
+</div>
+<div class="bottom-reservate-container">
+      <div (click)="openModal()" class="button"><span>Zarezerwuj</span></div>
+    <div class="price">
+      {{cottage.price}} zł / doba
+    </div>
+</div>
+  </div>
+</div>
+<div class="desc-container">
+<h2 id="opis">Opis</h2>
+<p class="desc-text">{{cottage.desc_long}}</p>
+</div>
+<div class="price-list">
+
+    <h2 id="dostepnosc">Sprawdź dostępność</h2>
+    <div class="price-list-container">
+    <div class="check-input">
+      <div><input  type="date" [min]="today" [(ngModel)]="startDate" (ngModelChange)="checkDates()" id="startDate"></div>
+      <label for="startDate" >Zameldowanie</label>
+    </div>
+   <div class="check-input">
+    <div><input type="date" [min]="today" [(ngModel)]="endDate" (ngModelChange)="checkDates()" id="endDate"></div>
+    <label for="endDate" >Wymeldowanie</label>
+  </div>
+  <div class="check-input">
+    <button (click)="checkAvailability()" [disabled]="isButtonDisabled">Sprawdź</button>
+    </div>
+  </div>
+  <div class="check-error" *ngIf="isButtonDisabled && startDate && endDate">
+    <p style="color: red;">Data zameldowania musi być wcześniejsza niż data wymeldowania.</p>
+  </div>
+</div>
+<div class="comments-container">
+  <h2 id="opinie">Opinie</h2>
+  <div class="opinion-average-container">
+    <div class="average-opinion">
+      <p *ngIf="comments.length > 0"><span class="average-rating">{{this.averageRating}}</span>/5</p>
+      <h3 *ngIf="!comments.length">Brak opinii</h3>
+      <div class="star-rating-all">
+        <span *ngFor="let star of [0, 1, 2, 3, 4]" class="material-symbols-outlined">star</span>
+        <div class="front-stars" [ngStyle]="{'width': (this.averageRating / 5) * 100 + '%'}">
+          <span *ngFor="let star of [0, 1, 2, 3, 4]" class="material-symbols-outlined">star</span>
+        </div>
+      </div>
+      <p class="opinions-length">({{comments.length}} opinie)</p>
+    </div>
+    <div class="add-opinion-container">
+      <div class="add-opinion">
+       <p>Podziel się opinią na temat swojego pobytu z innymi</p> 
+        <button (click)="openCreateComment()">Dodaj opinię</button>
+      </div>
+      
+    </div>
+  </div>
+
+  <div *ngIf="comments.length > 0" class="carousel-container">
+    <button *ngIf="comments.length > 0" (click)="scrollLeft()" class="carousel-button left"><span class="material-symbols-outlined">
+      navigate_before
+      </span>
+      </button>
+    <div class="opinion-container-wrapper" #opinionWrapper>
+      <div  *ngFor="let comment of comments" class="opinion-container">
+        <div class="user-rating-container">
+          <p class="user-name">{{ comment.userId.name }}</p>
+          <div class="rating-display">
+            <p *ngFor="let star of stars">
+              <span  [class.fa-star]="star <= comment.rating" [class.fa-star-o]="star > comment.rating" class="material-symbols-outlined">star</span>
+            </p>
+          </div>
+        </div>
+        <div class="opinion-text">
+          <p>{{ comment.text }}</p>
+        </div>
+        <div class="opinion-date">
+          <p>{{ comment.createDate | date: 'longDate' }}</p>
+        </div>
+      </div>
+    </div>
+    <button *ngIf="comments.length > 0" (click)="scrollRight()" class="carousel-button right"><span class="material-symbols-outlined">
+      navigate_next
+      </span>
+      </button>
+  </div>
+
+
+
+
+  <div *ngIf="isCreateCommentOpen" class="comment-container">
+  <div class="create-comment-container">
+    <div class="close-container"> <span (click)="closeCreateComment()" class="material-symbols-outlined">close</span></div>
+    <h3>Dodaj swoją opinię</h3>
+    <div class="rating">
+      <input value="5" name="rate" id="star5" type="radio" (change)="setRating(5)">
+      <label title="text" for="star5"></label>
+      <input value="4" name="rate" id="star4" type="radio" (change)="setRating(4)">
+      <label title="text" for="star4"></label>
+      <input value="3" name="rate" id="star3" type="radio" (change)="setRating(3)" checked="">
+      <label title="text" for="star3"></label>
+      <input value="2" name="rate" id="star2" type="radio" (change)="setRating(2)">
+      <label title="text" for="star2"></label>
+      <input value="1" name="rate" id="star1" type="radio" (change)="setRating(1)">
+      <label title="text" for="star1"></label>
+    </div>
+    <textarea class="input-field-comment" [(ngModel)]="inputValue" placeholder="Twoja opinia" id="comment"></textarea>
+    <button (click)="createComment()">Dodaj</button>
+  </div>
+</div>
+
+
+</div>
+</div>
+<div *ngIf="isModalOpen" class="reservation-container">
+  <div class="modal-content">
+    <div class="close-container"> <span (click)="closeModal()" class="material-symbols-outlined">close</span></div>
+    <form [formGroup]="reservationForm" (ngSubmit)="onSubmit()">
+      <div class="label-container">
+        <label for="startDate" >Data zameldowania</label>
+      </div>
+      <div class="form-input">
+        <input [min]="today" formControlName="startDate" type="date">
+      </div>
+      <div class="label-container">
+        <label for="startDate" (ngModelChange)="checkDatesReservation()" >Data zameldowania</label>
+      </div>
+      <div class="form-input">
+        <input [min]="today" (ngModelChange)="checkDatesReservation()" formControlName="endDate" type="date">
+      </div>
+      <div *ngIf="!reservationForm.errors?.dateRangeInvalid" class="price-container">
+        Cena za całość:<input type="string" readonly [value]="reservationForm.get('totalPrice')?.value| number:'1.2-2'" placeholder="0" class="form-control" id="totalPrice" />
+      </div>
+      <div *ngIf="reservationForm.errors?.dateRangeInvalid" class="price-container">
+        Cena za całość:<input type="string" readonly [value]="0" placeholder="0" class="form-control" id="totalPrice" />
+      </div>
+      <div class="button-form-container"><button [disabled]="isButtonDisabledReservation" type="submit">Zarezerwuj</button></div>
+      <div class="check-error-form" *ngIf="isButtonDisabledReservation   && reservationForm.get('endDate')?.value">
+        <p style="color: red;">Data zameldowania musi być wcześniejsza niż data wymeldowania.</p>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+

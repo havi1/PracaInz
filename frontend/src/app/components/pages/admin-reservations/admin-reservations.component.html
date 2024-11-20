@@ -1,0 +1,17 @@
+
+<div class="container">
+  <div class="rooms-list-container">
+      <h2>Lista lokali</h2>
+      <div class="rooms-list">
+      <div class="room-container"  *ngFor="let cottage of cottages" (click)="selectCottage(cottage.id)">
+        {{ cottage.name }}
+      </div>
+    </div>
+  </div>
+  <div class="calendar">
+    <h1></h1>
+    <full-calendar *ngIf="selectedCottageId" [events]="calendarEvents[selectedCottageId]" [options]="calendarOptions[selectedCottageId]"></full-calendar>
+  </div>
+</div>
+
+

@@ -1,0 +1,4 @@
+<div class="search-container">
+  <input #s type="text" placeholder="Wyszukaj interesującego Cię miejsca!" (keyup.enter)="search(s.value)" [value]="searchTerm"/>
+  <button (click)="search(s.value)"><span nz-icon nzType="search" nzTheme="outline"></span></button>
+</div>

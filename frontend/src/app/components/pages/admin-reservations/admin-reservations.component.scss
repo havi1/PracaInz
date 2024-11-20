@@ -1,0 +1,59 @@
+
+.container {
+  display: flex;
+  height: 100%;
+  width: 1200px;
+  padding-top: 100px;
+  margin: 0 auto;
+}
+
+.rooms-list {
+  width: 280px;
+  overflow-y: auto;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 15px;
+}
+
+.rooms-list-container {
+  padding-left: 20px;
+  width: 320px;
+  overflow-y: auto;
+  margin-right: 20px;
+}
+
+.room-container {
+    text-align: center;
+    width: 250px;
+    height: 40px;
+    margin: 10px 10px 20px 15px;
+    padding: 6px;
+    font-size: 16px;
+    border-radius: 15px;
+    cursor: pointer;
+    background-color: rgb(235,235,235);
+    transition: background-color 0.4s ease, box-shadow 0.4s ease, font-weight 0.4s ease;
+}
+
+.room-container:hover {
+  width: 250px;
+  height: 40px;
+  padding: 6px;
+  font-size: 16px;
+  border-radius: 15px;
+  font-weight: bolder;
+  cursor: pointer;
+  background-color: rgb(210, 210, 210);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.calendar {
+  flex-grow: 1; /* Kalendarz zajmuje pozostałą przestrzeń */
+}
+
+.fc-direction-ltr {
+  text-align: center;
+}
+
+.fc-direction-ltr .fc-daygrid-event .fc-event-time {
+  display: none;
+}

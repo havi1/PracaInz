@@ -1,0 +1,26 @@
+
+
+<div class="filters">
+  <a>Cena:</a>
+  <div class="price">
+    <input type="number" placeholder="od" id="cenaMin" [(ngModel)]="cenaMinValue">-
+    <input type="number" placeholder="do"  id="cenaMax" [(ngModel)]="cenaMaxValue">
+  </div>
+  <a>Goście:</a>
+<div class="guest">
+  <input type="number" placeholder="od" id="gosciMin" [(ngModel)]="gosciMinValue">-
+  <input type="number" placeholder="do" id="gosciMax" [(ngModel)]="gosciMaxValue">
+</div>
+<a>Pokoje:</a>
+<div class="rooms">
+  <input type="number" placeholder="od" id="pokoiMin" [(ngModel)]="pokoiMinValue">-
+  <input type="number" placeholder="do"  id="pokoiMax"  [(ngModel)]="pokoiMaxValue">
+</div>
+
+  <button class="button" (click)="applyFilters('filtred')">Zastosuj</button>
+</div>
+<hr>
+<div *ngIf="tags" class="tags">
+  <a *ngFor="let tag of tags" routerLink="/tag/{{tag.name}}">
+<div class="tag-name">{{tag.name}}({{tag.count}})</div></a>
+  </div>

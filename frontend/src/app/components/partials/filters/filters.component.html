@@ -1,0 +1,14 @@
+<div class="sort-list">
+    <div nz-dropdown [nzDropdownMenu]="menu">
+        Sortuj
+        <span nz-icon nzType="swap" nzTheme="outline"></span>
+    </div>
+      <nz-dropdown-menu #menu="nzDropdownMenu">
+        <ul nz-menu nzSelectable>
+          <li routerLink="/sort/up" nz-menu-item>Cena rosnąco</li>
+          <li routerLink="/sort/down" nz-menu-item>Cena malejąco</li>
+          <li nz-menu-item>Ocena od najwyższej</li>
+          <li nz-menu-item>Ocena od najniźszej</li>
+        </ul>
+      </nz-dropdown-menu>
+</div>

@@ -1,0 +1,131 @@
+header {
+  position: fixed;
+  top: 0;
+  z-index: 999;
+  width: 100%;
+  height: 70px;
+  display: flex;
+  column-gap: 130px;
+  justify-content:center;
+  align-items: center;
+  background-color: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.466);
+}
+
+.logo {
+  width: 250px;
+  display: flex;
+  justify-content: center;
+}
+
+.logo img{
+  margin-right: 10px;
+  width: 65px;
+  cursor: pointer;
+}
+
+.button {
+  margin: 0;
+  height: auto;
+  background: transparent;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+}
+
+.button {
+  --text-stroke-color: rgba(0, 0, 0, 0.6);
+  --animation-color: #421e1e;
+  --fs-size: 2em;
+  letter-spacing: 3px;
+  text-decoration: none;
+  font-size: var(--fs-size);
+  font-family: "Arial";
+  position: relative;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--text-stroke-color);
+}
+
+@keyframes hover-effect {
+  0%, 100% {
+    width: 0%;
+    filter: drop-shadow(0 0 0px var(--animation-color)); /* Brak cienia */
+    -webkit-text-stroke: 1px var(--text-stroke-color);
+  }
+  50% {
+    width: 100%;
+    filter: drop-shadow(0 0 23px var(--animation-color)); /* Pełny cień */
+    -webkit-text-stroke: 1px var(--animation-color);
+  }
+}
+
+.hover-text {
+  padding-top: 10px;
+  position: absolute;
+  box-sizing: border-box;
+  content: attr(data-text);
+  color: var(--animation-color);
+  width: 0%;
+  inset: 0;
+  border-right: var(--border-right) solid var(--animation-color);
+  overflow: hidden;
+  transition: 0.5s;
+  -webkit-text-stroke: 1px var(--animation-color);
+  animation: hover-effect 10s infinite; /* Dodajemy animację */
+}
+
+
+
+a {
+  color:white;
+}
+
+ul {
+  padding: 0;
+  display: flex;
+  list-style-type: none;
+  margin: 0;
+  width: 400px;
+  justify-content: center;
+  column-gap: 1px;
+}
+
+ul a {
+  padding: 1rem;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: center;
+  color: black;
+
+}
+
+ul a:hover {
+ color:rgb(129, 129, 129);
+
+}
+
+ul a span {
+  font-size: 14px;
+  margin-right: 5px;
+}
+
+.login {
+  margin-left: 100px;
+}
+
+
+.menu a:hover{
+  background:#919090;
+}
+
+.item {
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+}
+
+.menu a span{
+  margin-right: 10px;
+}
+
+
